@@ -79,7 +79,6 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  *      attributes={"pagination_items_per_page"=3},
  * )
  *  @ApiFilter(SearchFilter::class, properties={"id": "exact","name": "start"})
- *  @ApiFilter(TestFilter::class)
  *  @ApiFilter(OrderFilter::class, properties={"id": "DESC"})
  *  @ApiFilter(BooleanFilter::class, properties={"is_new","is_popular"})
  * @ORM\Entity(repositoryClass=ImageRepository::class)
