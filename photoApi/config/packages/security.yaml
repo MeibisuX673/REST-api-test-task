@@ -1,9 +1,9 @@
 # security:
 
-    encoders:
-        App\Entity\User:
-            algorithm: bcrypt
-            cost: 12
+    # encoders:
+    #     App\Entity\User:
+    #         algorithm: bcrypt
+    #         cost: 12
 
     providers:
         app_user_provider:
