@@ -6,25 +6,26 @@ services:
     build: 
       context: ./docker/php
     volumes:
-      - ./testProject:/var/www/app
+      - ./photoApi:/var/www/app
   
   nginx:
     image: nginx:latest
     volumes:
-      - ./testProject:/var/www/app
+      - ./photoApi:/var/www/app
       - ./docker/nginx/config:/etc/nginx/conf.d
     working_dir: /var/www/app
     ports:
       - 80:80
     depends_on:
       - web
+
   composer:
     image: composer:2.0.11
     volumes:
-      - ./testProject:/var/www/app
+      - ./photoApi:/var/www/app
     working_dir: /var/www/app
     command: composer install
-    
+
   db:
     image: mariadb
     restart: always
