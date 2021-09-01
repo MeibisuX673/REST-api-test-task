@@ -5,11 +5,11 @@
     #         algorithm: bcrypt
     #         cost: 12
 
-    providers:
-        app_user_provider:
-            entity:
-                class: App\Entity\User
-                property: email
+    # providers:
+    #     app_user_provider:
+    #         entity:
+    #             class: App\Entity\User
+    #             property: email
 
 #     firewalls:
 
