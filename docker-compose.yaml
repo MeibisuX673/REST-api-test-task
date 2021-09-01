@@ -7,6 +7,7 @@ services:
       context: ./docker/php
     volumes:
       - ./photoApi:/var/www/app
+    depends_on: db
   
   nginx:
     image: nginx:latest
@@ -25,6 +26,7 @@ services:
       - ./photoApi:/var/www/app
     working_dir: /var/www/app
     command: composer install
+    depends_on: web
 
   db:
     image: mariadb
