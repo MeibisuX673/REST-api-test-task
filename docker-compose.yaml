@@ -1,0 +1,42 @@
+version: "3.3"
+
+services:
+
+  web:
+    build: 
+      context: ./docker/php
+    volumes:
+      - ./testProject:/var/www/app
+  
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./testProject:/var/www/app
+      - ./docker/nginx/config:/etc/nginx/conf.d
+    working_dir: /var/www/app
+    ports:
+      - 80:80
+    depends_on:
+      - web
+  composer:
+    image: composer:2.0.11
+    volumes:
+      - ./testProject:/var/www/app
+    working_dir: /var/www/app
+    command: composer install
+    
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456
+      MARIADB_DATABASE: testapi
+      MARIADB_USER: test_user
+    volumes:
+      - ${DB_PATH_HOST}:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 6080:8080
