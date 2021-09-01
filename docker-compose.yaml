@@ -35,8 +35,6 @@ services:
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: 123456
-      MARIADB_DATABASE: testapi
-      MARIADB_USER: test_user
     volumes:
       - ${DB_PATH_HOST}:/var/lib/mysql
 
