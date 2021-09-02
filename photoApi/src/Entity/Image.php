@@ -6,8 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 use App\Repository\ImageRepository;
 use ApiPlatform\Core\Annotation\ApiFilter;
-use App\Controller\GetItemImageOperetionAction;
-use App\Filtres\TestFilter;
+use App\Controller\GetItemImageOperationAction;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
@@ -22,9 +21,9 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  * @ApiResource(
  *      itemOperations={
  *      "get" = {
- *          "normalization_context"={"groups"="item:get"},
+ *          "normalization_context"={"groups"="normalization:item:get},
  *          "method" = "GET",
- *          "controller" = GetItemImageOperetionAction::class,
+ *          "controller" = GetItemImageOperationAction::class,
  *     },
  *      "patch",
  *      "delete" = {
@@ -33,7 +32,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  * },
  *      collectionOperations={
  *      "get" = {
- *           "normalization_context"={"groups"={"collection:get"}},
+ *           "normalization_context"={"groups"={"normalization:collection:get"}},
  *      },
  *     "post"={
  *             "normalization_context"={"groups"="normalization:collection:post"},
@@ -89,33 +88,33 @@ class Image
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"item:get","collection:get","normalization:collection:post"})
+     * @Groups({"normalization:item:get,"normalization:collection:get","normalization:collection:post"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"write","item:get","collection:get","normalization:collection:post"})
+     * @Groups({"write","normalization:item:get,"normalization:collection:get","normalization:collection:post"})
      * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=1000, nullable=true)
-     * @Groups({"write","item:get","collection:get","normalization:collection:post"})
+     * @Groups({"write","normalization:item:get","normalization:collection:get","normalization:collection:post"})
      * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="boolean")
-     * @Groups({"item:get"})
+     * @Groups({"normalization:item:get"})
      */
     private $is_new;
 
     /**
      * @ORM\Column(type="boolean")
-     * @Groups({"read","item:get"})
+     * @Groups({"read","normalization:item:get"})
      *
      */
     private $is_popular;
@@ -123,7 +122,7 @@ class Image
     /**
      * @ORM\OneToOne(targetEntity=File::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"collection:get","item:get","normalization:collection:post"})
+     * @Groups({"normalization:collection:get","normalization:item:get","normalization:collection:post"})
      */
     private $file;
 
@@ -202,7 +201,7 @@ class Image
 
     }
     /**
-     * @Groups({"item:get"})
+     * @Groups({"normalization:item:get"})
      */
     public function getCounter(): int
     {
