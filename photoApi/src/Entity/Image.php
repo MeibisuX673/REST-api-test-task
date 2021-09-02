@@ -94,7 +94,7 @@ class Image
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"write","normalization:item:get,"normalization:collection:get","normalization:collection:post"})
+     * @Groups({"write","normalization:item:get","normalization:collection:get","normalization:collection:post"})
      * @Assert\NotBlank
      */
     private $name;
