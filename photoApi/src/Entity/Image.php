@@ -23,7 +23,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  *      "get" = {
  *          "normalization_context"={"groups"="normalization:item:get"},
  *          "method" = "GET",
- *          "controller" = GetItemImageOperationAction::class,
+ *          "controller" = GetItemImageOperationAction::class
  *     },
  *      "patch",
  *      "delete" = {
@@ -32,7 +32,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  * },
  *      collectionOperations={
  *      "get" = {
- *           "normalization_context"={"groups"="normalization:collection:get"},
+ *           "normalization_context"={"groups"="normalization:collection:get"}
  *      },
  *     "post"={
  *             "normalization_context"={"groups"="normalization:collection:post"},
@@ -58,7 +58,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  *                                     },
  *
  *                                      "description"={
- *                                         "type"="string",
+ *                                         "type"="string"
  *
  *                                     }
  *                                 }
@@ -88,7 +88,7 @@ class Image
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"normalization:item:get,"normalization:collection:get","normalization:collection:post"})
+     * @Groups({"normalization:item:get","normalization:collection:get","normalization:collection:post"})
      */
     private $id;
 
