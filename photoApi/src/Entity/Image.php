@@ -25,7 +25,9 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  *          "method" = "GET",
  *          "controller" = GetItemImageOperationAction::class
  *     },
- *      "patch",
+ *      "patch" = {
+ *          "normalization_context"={"groups"="normalization:item:patch"}
+ *       },
  *      "delete" = {
  *          "controller"=DeleteImageActionController::class
  *      },
@@ -88,20 +90,20 @@ class Image
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"normalization:item:get","normalization:collection:get","normalization:collection:post"})
+     * @Groups({"normalization:item:get","normalization:collection:get","normalization:collection:post","normalization:item:patch"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"write","normalization:item:get","normalization:collection:get","normalization:collection:post"})
+     * @Groups({"write","normalization:item:get","normalization:collection:get","normalization:collection:post","normalization:item:patch"})
      * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=1000, nullable=true)
-     * @Groups({"write","normalization:item:get","normalization:collection:get","normalization:collection:post"})
+     * @Groups({"write","normalization:item:get","normalization:collection:post","normalization:item:patch"})
      * @Assert\NotBlank
      */
     private $description;
@@ -122,7 +124,7 @@ class Image
     /**
      * @ORM\OneToOne(targetEntity=File::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"normalization:collection:get","normalization:item:get","normalization:collection:post"})
+     * @Groups({"normalization:collection:get","normalization:item:get","normalization:collection:post","normalization:item:patch"})
      */
     private $file;
 
@@ -201,7 +203,7 @@ class Image
 
     }
     /**
-     * @Groups({"normalization:item:get"})
+     * @Groups({"normalization:item:get","normalization:item:patch"})
      */
     public function getCounter(): int
     {

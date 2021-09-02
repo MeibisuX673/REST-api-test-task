@@ -1,7 +1,11 @@
 api_platform:
 
     title: 'Image API'
-    description: '[Base URL : /api ]'
+    description: "[Base URL : /api ] <br> <b>Registration: </b> curl -XPOST \x7b base url \x7d/register -d \x27\x7b \"email\":\"email\",\"password\":\"password\" \x7d\x27
+                <br> <b>Login: </b> curl -XPOST -H \"accept: application/json\" \x7b base url \x7d/login -d \x27\x7b \"email\":\"email\",\"password\":\"password\" \x7d\x27
+                <br> <b>Refresh token: </b> curl -XPOST -H \"accept: application/json\" \x7b base url \x7d/token/refresh -d \x27\x7b \"refresh_token\":\"refresh_token\" \x7d\x27
+                <br> <b>Use token(example): </b> curl -XGET -H \"Authorization: Bearer \x7b token \x7d\" \x7b base url \x7d/images?page=1
+                "
     version: '0.0.1'
 
 

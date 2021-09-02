@@ -3,49 +3,10 @@
 resources:
   App\Entity\User:
 
-    collectionOperations:
-
-      post:
-
-        route_name: register
-        method: POST
-        openapi_context:
-          summary: User registration
-          responses:
-            "201":
-              description: User registered
-            "409":
-              description: The user exists
-
-      user_login:
-        route_name: api_login_check
-        method: POST
-        openapi_context:
-          summary: User login
-          responses:
-            "200":
-              description: Ok
-
-      refresh_token:
-        route_name: gesdinet_jwt_refresh_token
-        method: POST
-        openapi_context:
-          summary: Return new token
-          requestBody:
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-
-                    refresh_token: { type: string }
-                example:
-
-                  refresh_token: refresh_token
-
+    collectionOperations: []
 
     itemOperations:
-        patch: ~
-        get: ~
-        delete: ~
+      patch: ~
+      get: ~
+      delete: ~
 
