@@ -67,11 +67,13 @@
 
 
 security:
-   providers:
-       in_memory: { memory: ~ }
-   firewalls:
-       dev:
-           pattern: ^/(_(profiler|wdt)|css|images|js)/
-           security: false
-       main:
-           anonymous: ~
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        users_in_memory: { memory: null }
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: lazy
+            provider: users_in_memory
