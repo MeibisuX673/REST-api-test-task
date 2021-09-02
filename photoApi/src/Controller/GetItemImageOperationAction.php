@@ -9,7 +9,7 @@ use App\Events\LoadImageEvent;
 use App\Services\CounterManagerService;
 use App\Services\EventServiceInterface;
 
-class GetItemImageOperetionAction
+class GetItemImageOperationAction
 {
     private $eventService;
     private $counterManager;

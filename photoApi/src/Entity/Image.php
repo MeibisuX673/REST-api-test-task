@@ -32,7 +32,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  * },
  *      collectionOperations={
  *      "get" = {
- *           "normalization_context"={"groups"={"normalization:collection:get"}},
+ *           "normalization_context"={"groups"="normalization:collection:get"},
  *      },
  *     "post"={
  *             "normalization_context"={"groups"="normalization:collection:post"},
