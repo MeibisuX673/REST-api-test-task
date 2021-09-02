@@ -21,7 +21,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  * @ApiResource(
  *      itemOperations={
  *      "get" = {
- *          "normalization_context"={"groups"="normalization:item:get},
+ *          "normalization_context"={"groups"="normalization:item:get"},
  *          "method" = "GET",
  *          "controller" = GetItemImageOperationAction::class,
  *     },
