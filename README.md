@@ -28,7 +28,7 @@ Start migration
 $ make migration
 ```
 
-Other commands
+Other commands:
 
 ```
 $make exec {container name}
