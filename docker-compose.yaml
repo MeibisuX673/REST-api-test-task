@@ -21,15 +21,6 @@ services:
     depends_on:
       - web
 
-  composer:
-    image: composer:2.0.11
-    volumes:
-      - ./photoApi:/var/www/app
-    working_dir: /var/www/app
-    command: composer install
-    depends_on: 
-      - web
-
   db:
     image: mariadb
     restart: always

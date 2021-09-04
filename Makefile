@@ -24,5 +24,8 @@ create-migrations:
 migration: create-migrations
 	$(SYMFONY_CONSOLE) doctrine:migrations:migrate
 
+vendor-install:
+	$(SYMFONY_CONSOLE) composer install
+
 exec:
 	$(DOCKER_COMPOSE_EXEC) $(SERVICE)
