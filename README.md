@@ -31,7 +31,7 @@ $ make migration
 Other commands:
 
 ```
-$make exec {container name}
+$ make exec {container name}
 ```
 ### Check the work
 
