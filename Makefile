@@ -6,7 +6,7 @@ PHP_DOCKER_COMPOSE_EXEC=$(DOCKER_COMPOSE_EXEC) web
 SYMFONY_CONSOLE=$(PHP_DOCKER_COMPOSE_EXEC) php bin/console
 DB_CREATE=$(SYMFONY_CONSOLE) doctrine:database:create
 
-start:
+start: vendor install
 	$(DOCKER_COMPOSE) up --build -d
 
 stop:
