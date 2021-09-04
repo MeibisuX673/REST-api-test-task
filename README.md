@@ -2,16 +2,17 @@
 
 ## Getting started
 
-Vendor install
-
-```
-$ make vendor-install
-```
 
 Launch containers
 
 ```
 $ make start
+```
+
+Vendor install
+
+```
+$ make vendor-install
 ```
 
 Containers run:
