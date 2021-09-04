@@ -2,6 +2,12 @@
 
 ## Getting started
 
+Vendor install
+
+```
+$ make vendor-install
+```
+
 Launch containers
 
 ```
@@ -16,11 +22,6 @@ Containers run:
 - db
 - adminer
 
-Vendor install
-
-```
-$ make vendor-install
-```
 
 Database create
 

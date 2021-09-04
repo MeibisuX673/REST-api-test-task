@@ -12,9 +12,6 @@ start:
 stop:
 	$(DOCKER_COMPOSE) stop
 
-vendor-install:
-	$(PHP_DOCKER_COMPOSE_EXEC) composer install
-
 db_create:
 	$(SYMFONY_CONSOLE) doctrine:database:create
 
