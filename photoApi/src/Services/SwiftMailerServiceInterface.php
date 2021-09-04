@@ -12,5 +12,4 @@ interface SwiftMailerServiceInterface
      */
     public function sendMessage(string $email);
 
-    
 }
