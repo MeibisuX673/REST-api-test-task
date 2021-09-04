@@ -12,7 +12,7 @@ start:
 stop:
 	$(DOCKER_COMPOSE) stop
 
-db_create:
+db-create:
 	$(SYMFONY_CONSOLE) doctrine:database:create
 
 create-migrations:
