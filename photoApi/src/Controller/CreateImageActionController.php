@@ -65,7 +65,7 @@ final class CreateImageActionController extends BaseController
 //        $event = new ImagePublishedEvent($file);
 //        $eventDispatcher->dispatch($event);
 
-        $image = $this->imageService->handleCreate($file, $imageDescription);
+        $image = $this->imageService->handleCreate($this->getUser(),$file, $imageDescription);
 
         return $image;
     }

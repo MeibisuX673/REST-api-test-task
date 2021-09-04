@@ -45,7 +45,7 @@ class FileManagerService implements FileManagerServiceInterface{
         }catch (FileException $e){
             return $e;
         }
-        $path = $this->getImageDirectory().'/'.$filename;
+        $path = $this->getImageDirectory(). '/' .$filename;
 
         $image = ['fileName'=>$filename,'path'=>$path];
         return $image;
@@ -64,5 +64,18 @@ class FileManagerService implements FileManagerServiceInterface{
         } catch (IOExceptionInterface $exception){
             echo $exception->getMessage();
         }
+    }
+
+    public function getImageContent(string $fileName): ?array{
+        if(!file_exists($this->getImageDirectory() . '/' .$fileName)){
+            return null;
+        }
+        $path = $this->getImageDirectory() . '/' .$fileName;
+        $type = mime_content_type($path);
+        $content = file_get_contents($path);
+        $data = base64_encode($content);
+        $base64 = ["file"=>'data:' . $type . ';base64,' . $data];
+        
+        return $base64;
     }
 }

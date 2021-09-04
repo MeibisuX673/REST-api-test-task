@@ -17,4 +17,12 @@ interface FileManagerServiceInterface{
      * @return mixed
      */
     public function removeImage($filename);
+
+   /**
+    *
+    * @param string $name
+    * @return void
+    */
+    public function getImageContent(string $fileName): ?array;
+        
 }

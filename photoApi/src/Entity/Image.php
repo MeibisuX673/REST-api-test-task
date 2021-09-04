@@ -77,10 +77,9 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  *
  *      denormalizationContext={"groups"={"write"}},
  * 
- *      attributes={"pagination_items_per_page"=3},
+ *      attributes={"pagination_items_per_page"=12},
  * )
  *  @ApiFilter(SearchFilter::class, properties={"id": "exact","name": "start"})
- *  @ApiFilter(OrderFilter::class, properties={"id": "DESC"})
  *  @ApiFilter(BooleanFilter::class, properties={"is_new","is_popular"})
  * @ORM\Entity(repositoryClass=ImageRepository::class)
  */
@@ -198,6 +197,11 @@ class Image
     
     private int $counter = 0;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="images")
+     */
+    private $user;
+
     public function setCounter(int $counter){
         $this->counter = $counter;
 
@@ -209,4 +213,17 @@ class Image
     {
         return $this->counter;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
 }
