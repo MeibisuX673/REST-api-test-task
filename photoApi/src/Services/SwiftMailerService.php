@@ -25,8 +25,8 @@ class SwiftMailerService implements SwiftMailerServiceInterface
 
     public function sendMessageTest(string $email, $message)
     {
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('test.test@test.com','GAY')
+        $message = (new \Swift_Message("You have registered'))
+            ->setFrom('test.test@test.com','Test')
             ->setTo($email)
             ->setBody($message);
 
