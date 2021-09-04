@@ -16,6 +16,12 @@ Containers run:
 - db
 - adminer
 
+Vendor install
+
+```
+$ make vendor-install
+```
+
 Database create
 
 ```
