@@ -9,12 +9,6 @@ Launch containers
 $ make start
 ```
 
-Vendor install
-
-```
-$ make vendor-install
-```
-
 Containers run:
 
 - web

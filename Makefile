@@ -6,7 +6,7 @@ PHP_DOCKER_COMPOSE_EXEC=$(DOCKER_COMPOSE_EXEC) web
 SYMFONY_CONSOLE=$(PHP_DOCKER_COMPOSE_EXEC) php bin/console
 DB_CREATE=$(SYMFONY_CONSOLE) doctrine:database:create
 
-start: vendor install
+start:
 	$(DOCKER_COMPOSE) up --build -d
 
 stop:
@@ -20,9 +20,6 @@ create-migrations:
 
 migration: create-migrations
 	$(SYMFONY_CONSOLE) doctrine:migrations:migrate
-
-vendor-install:
-	$(SYMFONY_CONSOLE) composer install
 
 exec:
 	$(DOCKER_COMPOSE_EXEC) $(SERVICE)
