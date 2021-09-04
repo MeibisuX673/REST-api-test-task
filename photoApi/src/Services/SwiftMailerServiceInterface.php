@@ -12,10 +12,5 @@ interface SwiftMailerServiceInterface
      */
     public function sendMessage(string $email);
 
-    /**
-     * @param string $email
-     * @param $message
-     * @return mixed
-     */
-    public function sendMessageTest(string $email, $message);
+    
 }
