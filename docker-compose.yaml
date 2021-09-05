@@ -6,7 +6,7 @@ services:
     build: 
       context: ./docker/php
     volumes:
-      - ./photoApi:/var/www/app
+      - ${APP_PATH_HOST}:/var/www/app
     depends_on: 
       - db
   
