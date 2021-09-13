@@ -30,11 +30,18 @@ Start migration
 $ make migration
 ```
 
+Generate-keys
+
+```
+$ make generate-keys
+```
+
 Other commands:
 
 ```
 $ make exec {container name}
 ```
+
 ### Check the work
 
 Go to the address: `localhost/api/docs`
