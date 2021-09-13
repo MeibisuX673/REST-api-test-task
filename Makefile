@@ -23,3 +23,6 @@ migration: create-migrations
 
 exec:
 	$(DOCKER_COMPOSE_EXEC) $(SERVICE)
+
+generate-keys:
+	$(SYMFONY_CONSOLE) lexik:jwt:generate-keypair
